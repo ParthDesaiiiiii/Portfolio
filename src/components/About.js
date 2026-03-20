@@ -1,5 +1,6 @@
 import React from 'react';
 import './About.css';
+import Reveal from './Reveal';
 
 const About = () => {
   return (
@@ -9,7 +10,8 @@ const About = () => {
         <p className="section-subtitle">
           Get to know more about my background, passion, and what drives me as a software engineer
         </p>
-        <div className="about-content">
+        <Reveal delay={60}>
+          <div className="about-content">
           <div className="about-text">
             <p>
               I'm a passionate Software Engineer and Full Stack Developer currently pursuing 
@@ -53,24 +55,33 @@ const About = () => {
             </div>
           </div>
           <div className="about-stats">
-            <div className="stat-card">
-              <div className="stat-number">2+</div>
-              <div className="stat-label">Years Experience</div>
-            </div>
-            <div className="stat-card">
-              <div className="stat-number">10+</div>
-              <div className="stat-label">Technologies</div>
-            </div>
-            <div className="stat-card">
-              <div className="stat-number">100%</div>
-              <div className="stat-label">Project Completion</div>
-            </div>
-            <div className="stat-card">
-              <div className="stat-number">15%+</div>
-              <div className="stat-label">Performance Improvement</div>
-            </div>
+            <Reveal delay={140}>
+              <div className="stat-card sr-card-glow">
+                <div className="stat-number">2+</div>
+                <div className="stat-label">Years Experience</div>
+              </div>
+            </Reveal>
+            <Reveal delay={200}>
+              <div className="stat-card sr-card-glow">
+                <div className="stat-number">10+</div>
+                <div className="stat-label">Technologies</div>
+              </div>
+            </Reveal>
+            <Reveal delay={260}>
+              <div className="stat-card sr-card-glow">
+                <div className="stat-number">100%</div>
+                <div className="stat-label">Project Completion</div>
+              </div>
+            </Reveal>
+            <Reveal delay={320}>
+              <div className="stat-card sr-card-glow">
+                <div className="stat-number">15%+</div>
+                <div className="stat-label">Performance Improvement</div>
+              </div>
+            </Reveal>
           </div>
-        </div>
+          </div>
+        </Reveal>
       </div>
     </section>
   );

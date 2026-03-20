@@ -1,5 +1,6 @@
 import React from 'react';
 import './Skills.css';
+import Reveal from './Reveal';
 
 const Skills = () => {
   const skillCategories = [
@@ -44,19 +45,21 @@ const Skills = () => {
         </p>
         <div className="skills-grid">
           {skillCategories.map((category, index) => (
-            <div key={index} className="skill-category">
-              <div className="skill-category-header">
-                <i className={category.icon}></i>
-                <h3>{category.title}</h3>
+            <Reveal key={index} delay={80 + index * 60}>
+              <div className="skill-category sr-card-glow">
+                <div className="skill-category-header">
+                  <i className={category.icon}></i>
+                  <h3>{category.title}</h3>
+                </div>
+                <div className="skill-tags">
+                  {category.skills.map((skill, skillIndex) => (
+                    <span key={skillIndex} className="skill-tag">
+                      {skill}
+                    </span>
+                  ))}
+                </div>
               </div>
-              <div className="skill-tags">
-                {category.skills.map((skill, skillIndex) => (
-                  <span key={skillIndex} className="skill-tag">
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>

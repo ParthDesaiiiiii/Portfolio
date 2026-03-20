@@ -1,5 +1,6 @@
 import React from 'react';
 import './Hero.css';
+import Reveal from './Reveal';
 
 const Hero = () => {
   const scrollToSection = (sectionId) => {
@@ -18,7 +19,8 @@ const Hero = () => {
       </div>
       <div className="container">
         <div className="hero-content">
-          <div className="hero-text">
+          <Reveal delay={40}>
+            <div className="hero-text">
             <h1 className="hero-title">
               Hi, I'm <span className="highlight">Parth Desai</span>
             </h1>
@@ -74,9 +76,11 @@ const Hero = () => {
                 <i className="fas fa-envelope"></i>
               </a>
             </div>
-          </div>
-          <div className="hero-image">
-            <div className="hero-avatar">
+            </div>
+          </Reveal>
+          <Reveal delay={140}>
+            <div className="hero-image">
+              <div className="hero-avatar">
               <img
                 src={heroImgUrl}
                 alt="Parth Desai - Software Engineer"
@@ -98,7 +102,8 @@ const Hero = () => {
                 <i className="fas fa-user"></i>
               </div>
             </div>
-          </div>
+            </div>
+          </Reveal>
         </div>
         <div className="scroll-indicator">
           <a href="#about" onClick={(e) => { e.preventDefault(); scrollToSection('about'); }}>

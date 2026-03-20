@@ -39,4 +39,41 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Scroll reveal animations (kept generic to avoid clashing with Resume CSS) */
+@media (prefers-reduced-motion: no-preference) {
+  .sr-reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .sr-reveal-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @keyframes srGlow {
+    0% {
+      filter: drop-shadow(0 0 0 rgba(56, 189, 248, 0.0));
+    }
+    60% {
+      filter: drop-shadow(0 0 22px rgba(56, 189, 248, 0.22));
+    }
+    100% {
+      filter: drop-shadow(0 0 0 rgba(56, 189, 248, 0.0));
+    }
+  }
+
+  .sr-card-glow:hover {
+    animation: srGlow 0.9s ease both;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sr-reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 

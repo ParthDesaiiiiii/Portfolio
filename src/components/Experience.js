@@ -1,5 +1,6 @@
 import React from 'react';
 import './Experience.css';
+import Reveal from './Reveal';
 
 const Experience = () => {
   const experiences = [
@@ -72,23 +73,25 @@ const Experience = () => {
         </p>
         <div className="experience-timeline">
           {experiences.map((exp, index) => (
-            <div key={index} className={`timeline-item ${exp.type}`}>
-              <div className="timeline-marker"></div>
-              <div className="timeline-content">
-                <div className="experience-header">
-                  <h3>{exp.title}</h3>
-                  <span className="experience-badge">{exp.type === 'virtual' ? 'Virtual' : 'Professional'}</span>
+            <Reveal key={index} delay={80 + index * 70}>
+              <div className={`timeline-item ${exp.type}`}>
+                <div className="timeline-marker"></div>
+                <div className="timeline-content sr-card-glow">
+                  <div className="experience-header">
+                    <h3>{exp.title}</h3>
+                    <span className="experience-badge">{exp.type === 'virtual' ? 'Virtual' : 'Professional'}</span>
+                  </div>
+                  <h4 className="company-name">{exp.company}</h4>
+                  <p className="experience-location">{exp.location}</p>
+                  <p className="experience-period">{exp.period}</p>
+                  <ul className="experience-achievements">
+                    {exp.achievements.map((achievement, aIndex) => (
+                      <li key={aIndex}>{achievement}</li>
+                    ))}
+                  </ul>
                 </div>
-                <h4 className="company-name">{exp.company}</h4>
-                <p className="experience-location">{exp.location}</p>
-                <p className="experience-period">{exp.period}</p>
-                <ul className="experience-achievements">
-                  {exp.achievements.map((achievement, aIndex) => (
-                    <li key={aIndex}>{achievement}</li>
-                  ))}
-                </ul>
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>

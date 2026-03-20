@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useMemo, useState } from 'react';
 import './Projects.css';
+import Reveal from './Reveal';
 
 const Projects = () => {
-  const projects = [
+  const projects = useMemo(
+    () => [
     {
       title: 'Expense Management System',
       type: 'Research Publication',
@@ -44,7 +46,12 @@ const Projects = () => {
       icon: 'fas fa-gamepad',
       color: 'primary'
     }
-  ];
+    ],
+    []
+  );
+
+  const [activeProjectIndex, setActiveProjectIndex] = useState(null);
+  const activeProject = activeProjectIndex == null ? null : projects[activeProjectIndex];
 
   return (
     <section id="projects" className="projects">
@@ -55,39 +62,131 @@ const Projects = () => {
         </p>
         <div className="projects-grid">
           {projects.map((project, index) => (
-            <div key={index} className={`project-card ${project.color}`}>
-              <div className="project-header">
-                <div className="project-icon">
-                  <i className={project.icon}></i>
+            <Reveal key={index} delay={80 + index * 80}>
+              <div
+                className={`project-card ${project.color} sr-card-glow`}
+                role="button"
+                tabIndex={0}
+                onClick={() => setActiveProjectIndex(index)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') setActiveProjectIndex(index);
+                }}
+                aria-label={`Open details for ${project.title}`}
+              >
+                <div className="project-header">
+                  <div className="project-icon">
+                    <i className={project.icon}></i>
+                  </div>
+                  <div className="project-type">{project.type}</div>
                 </div>
-                <div className="project-type">{project.type}</div>
+
+                <h3>{project.title}</h3>
+                <p className="project-description">{project.description}</p>
+
+                <div className="project-contributions">
+                  <h4>Key Contributions:</h4>
+                  <ul>
+                    {project.contributions.slice(0, 3).map((contribution, cIndex) => (
+                      <li key={cIndex}>{contribution}</li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="project-footer">
+                  {project.technologies && (
+                    <div className="project-technologies">
+                      {project.technologies.slice(0, 3).map((tech, tIndex) => (
+                        <span key={tIndex} className="tech-badge">{tech}</span>
+                      ))}
+                    </div>
+                  )}
+                  <button
+                    type="button"
+                    className="btn btn-secondary project-details-btn"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setActiveProjectIndex(index);
+                    }}
+                  >
+                    View Details
+                  </button>
+                </div>
               </div>
-              <h3>{project.title}</h3>
-              <p className="project-description">{project.description}</p>
-              <div className="project-contributions">
-                <h4>Key Contributions:</h4>
-                <ul>
-                  {project.contributions.map((contribution, cIndex) => (
-                    <li key={cIndex}>{contribution}</li>
-                  ))}
-                </ul>
-              </div>
-              {project.technologies && (
-                <div className="project-technologies">
-                  {project.technologies.map((tech, tIndex) => (
-                    <span key={tIndex} className="tech-badge">{tech}</span>
-                  ))}
-                </div>
-              )}
-              {project.publication && (
-                <div className="project-publication">
-                  <h4>Publication:</h4>
-                  <p>{project.publication}</p>
-                </div>
-              )}
-            </div>
+            </Reveal>
           ))}
         </div>
+
+        {activeProject && (
+          <div
+            className="project-modal-overlay"
+            role="dialog"
+            aria-modal="true"
+            aria-label={`Project details for ${activeProject.title}`}
+            onClick={() => setActiveProjectIndex(null)}
+          >
+            <div
+              className="project-modal"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="project-modal-header">
+                <div className="project-modal-title">
+                  <i className={activeProject.icon}></i>
+                  <span>{activeProject.title}</span>
+                </div>
+                <button
+                  type="button"
+                  className="project-modal-close"
+                  aria-label="Close"
+                  onClick={() => setActiveProjectIndex(null)}
+                >
+                  <i className="fas fa-times"></i>
+                </button>
+              </div>
+
+              <div className="project-modal-body">
+                <div className="project-modal-type">{activeProject.type}</div>
+                <p className="project-modal-description">{activeProject.description}</p>
+
+                <div className="project-modal-section">
+                  <h4>Key Contributions</h4>
+                  <ul>
+                    {activeProject.contributions.map((contribution, cIndex) => (
+                      <li key={cIndex}>{contribution}</li>
+                    ))}
+                  </ul>
+                </div>
+
+                {activeProject.technologies && (
+                  <div className="project-modal-section">
+                    <h4>Technologies</h4>
+                    <div className="project-technologies">
+                      {activeProject.technologies.map((tech, tIndex) => (
+                        <span key={tIndex} className="tech-badge">{tech}</span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {activeProject.publication && (
+                  <div className="project-modal-section">
+                    <h4>Publication</h4>
+                    <p className="project-modal-publication">{activeProject.publication}</p>
+                  </div>
+                )}
+              </div>
+
+              <div className="project-modal-footer">
+                <button
+                  type="button"
+                  className="btn btn-primary"
+                  onClick={() => setActiveProjectIndex(null)}
+                >
+                  Done
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );

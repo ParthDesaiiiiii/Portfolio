@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './Contact.css';
+import Reveal from './Reveal';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -65,7 +66,8 @@ const Contact = () => {
         <p className="section-subtitle">
           I'm always open to discussing new opportunities and interesting projects
         </p>
-        <div className="contact-content">
+        <Reveal delay={60}>
+          <div className="contact-content">
           <div className="contact-info">
             <h3>Let's Connect</h3>
             <p>
@@ -92,7 +94,8 @@ const Contact = () => {
               ))}
             </div>
           </div>
-          <div className="contact-form-container">
+          <Reveal delay={160}>
+            <div className="contact-form-container sr-card-glow">
             <form className="contact-form" onSubmit={handleSubmit}>
               <div className="form-group">
                 <label htmlFor="name">Name</label>
@@ -147,8 +150,10 @@ const Contact = () => {
                 Send Message
               </button>
             </form>
-          </div>
+            </div>
+          </Reveal>
         </div>
+        </Reveal>
       </div>
     </section>
   );
