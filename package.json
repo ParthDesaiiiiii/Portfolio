@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "Professional portfolio website for Parth Desai - Software Engineer",
   "private": true,
-  "homepage": "https://parthdesaiiiiii.github.io/Portfolio",
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
