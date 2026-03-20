@@ -3,7 +3,7 @@ import resumeImg from '../assets/resume.png';
 import './Resume.css';
 
 const Resume = () => {
-  // Expect portrait in `public/parth_img.jpg` (so CRA can serve it without bundling).
+  // Expect portrait in `public/parth_img.jpg` (so browser decoding is correct).
   const parthImgUrl = `${process.env.PUBLIC_URL}/parth_img.jpg`;
 
   const education = [
@@ -103,8 +103,15 @@ const Resume = () => {
                     src={parthImgUrl}
                     alt="Parth Desai portrait"
                     onError={(e) => {
-                      e.target.style.display = 'none';
-                      const fallback = e.target.parentElement.querySelector('.avatar-fallback');
+                      const img = e.target;
+                      if (!img.dataset.fallbackTried) {
+                        img.dataset.fallbackTried = '1';
+                      img.src = `${process.env.PUBLIC_URL}/parth_img.png`;
+                        return;
+                      }
+
+                      img.style.display = 'none';
+                      const fallback = img.parentElement.querySelector('.avatar-fallback');
                       if (fallback) fallback.style.display = 'flex';
                     }}
                   />

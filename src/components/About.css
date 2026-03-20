@@ -56,17 +56,24 @@
 }
 
 .stat-card {
-  background: white;
+  background: rgba(255, 255, 255, 0.035);
   padding: 2rem;
   border-radius: 12px;
   text-align: center;
   box-shadow: var(--shadow);
+  border: 1px solid rgba(229, 231, 235, 0.10);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .stat-card:hover {
   transform: translateY(-5px);
   box-shadow: var(--shadow-lg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stat-card {
+    transition: none;
+  }
 }
 
 .stat-number {

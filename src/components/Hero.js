@@ -9,6 +9,8 @@ const Hero = () => {
     }
   };
 
+  const heroImgUrl = `${process.env.PUBLIC_URL}/parth_img.jpg`;
+
   return (
     <section id="home" className="hero">
       <div className="hero-background">
@@ -75,13 +77,21 @@ const Hero = () => {
           </div>
           <div className="hero-image">
             <div className="hero-avatar">
-              <img 
-                src="" 
+              <img
+                src={heroImgUrl}
                 alt="Parth Desai - Software Engineer"
                 className="profile-image"
                 onError={(e) => {
-                  e.target.style.display = 'none';
-                  e.target.nextElementSibling.style.display = 'flex';
+                  const img = e.target;
+                  if (!img.dataset.fallbackTried) {
+                    img.dataset.fallbackTried = '1';
+                    img.src = `${process.env.PUBLIC_URL}/parth_img.png`;
+                    return;
+                  }
+
+                  img.style.display = 'none';
+                  const placeholder = img.nextElementSibling;
+                  if (placeholder) placeholder.style.display = 'flex';
                 }}
               />
               <div className="avatar-placeholder" style={{ display: 'none' }}>

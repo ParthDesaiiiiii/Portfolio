@@ -30,6 +30,17 @@ const Experience = () => {
       type: 'professional'
     },
     {
+      title: 'AWS SimuLearn - Cloud Practitioner Learning Plan',
+      company: 'AWS Skill Builder',
+      location: 'Virtual',
+      period: 'February 2026',
+      achievements: [
+        'Deployed and managed cloud resources including EC2 instances, RDS databases, S3 storage, IAM roles, and VPC networking components.',
+        'Implemented secure access controls, configured read replicas, and resolved infrastructure issues through guided cloud-based simulations.'
+      ],
+      type: 'virtual'
+    },
+    {
       title: 'Software Engineer Design Simulation',
       company: 'Electronic Arts - The Forage',
       location: 'Virtual',

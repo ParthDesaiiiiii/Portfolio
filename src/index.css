@@ -8,14 +8,14 @@
   --primary-color: #2563eb;
   --primary-dark: #1e40af;
   --secondary-color: #7c3aed;
-  --text-primary: #1f2937;
-  --text-secondary: #6b7280;
-  --bg-primary: #ffffff;
-  --bg-secondary: #f9fafb;
-  --bg-dark: #111827;
-  --border-color: #e5e7eb;
-  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --text-primary: #e5e7eb;
+  --text-secondary: rgba(229, 231, 235, 0.72);
+  --bg-primary: #070b14;
+  --bg-secondary: #0b1220;
+  --bg-dark: #000000;
+  --border-color: rgba(229, 231, 235, 0.12);
+  --shadow: 0 10px 35px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 18px 65px rgba(0, 0, 0, 0.55);
 }
 
 body {
@@ -27,6 +27,7 @@ body {
   color: var(--text-primary);
   line-height: 1.6;
   scroll-behavior: smooth;
+  background: var(--bg-primary);
 }
 
 code {

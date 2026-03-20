@@ -13,7 +13,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #0b1220 0%, #1e293b 100%);
   z-index: -1;
 }
 
@@ -23,7 +23,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, rgba(37, 99, 235, 0.9) 0%, rgba(124, 58, 237, 0.9) 100%);
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.65) 0%, rgba(124, 58, 237, 0.55) 100%);
 }
 
 .hero-content {
@@ -91,24 +91,24 @@
 }
 
 .btn-primary {
-  background: white;
-  color: var(--primary-color);
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  color: white;
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.35);
 }
 
 .btn-secondary {
   background: transparent;
-  color: white;
-  border: 2px solid white;
+  color: rgba(229, 231, 235, 0.95);
+  border: 2px solid rgba(229, 231, 235, 0.28);
 }
 
 .btn-secondary:hover {
-  background: white;
-  color: var(--primary-color);
+  background: rgba(255, 255, 255, 0.06);
+  color: white;
   transform: translateY(-2px);
 }
 
@@ -133,8 +133,8 @@
 }
 
 .hero-social a:hover {
-  background: white;
-  color: var(--primary-color);
+  background: rgba(255, 255, 255, 0.12);
+  color: white;
   transform: translateY(-3px);
 }
 

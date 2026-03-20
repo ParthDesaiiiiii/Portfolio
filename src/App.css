@@ -75,4 +75,108 @@ section {
   }
 }
 
+/* Page-wide subtle animations (dark, professional feel) */
+@media (prefers-reduced-motion: no-preference) {
+  .about .stat-card {
+    animation: fadeInUp 0.6s ease-out both;
+  }
+  .about .stat-card:nth-child(1) {
+    animation-delay: 0.05s;
+  }
+  .about .stat-card:nth-child(2) {
+    animation-delay: 0.12s;
+  }
+  .about .stat-card:nth-child(3) {
+    animation-delay: 0.19s;
+  }
+  .about .stat-card:nth-child(4) {
+    animation-delay: 0.26s;
+  }
+
+  .skills .skill-category {
+    animation: fadeInUp 0.6s ease-out both;
+  }
+  .skills .skill-category:nth-child(1) {
+    animation-delay: 0.05s;
+  }
+  .skills .skill-category:nth-child(2) {
+    animation-delay: 0.12s;
+  }
+  .skills .skill-category:nth-child(3) {
+    animation-delay: 0.19s;
+  }
+  .skills .skill-category:nth-child(4) {
+    animation-delay: 0.26s;
+  }
+  .skills .skill-category:nth-child(5) {
+    animation-delay: 0.33s;
+  }
+  .skills .skill-category:nth-child(6) {
+    animation-delay: 0.4s;
+  }
+
+  .experience .timeline-item {
+    animation: fadeInUp 0.6s ease-out both;
+  }
+  .experience .timeline-item:nth-child(1) {
+    animation-delay: 0.05s;
+  }
+  .experience .timeline-item:nth-child(2) {
+    animation-delay: 0.12s;
+  }
+  .experience .timeline-item:nth-child(3) {
+    animation-delay: 0.19s;
+  }
+  .experience .timeline-item:nth-child(4) {
+    animation-delay: 0.26s;
+  }
+
+  .education .education-card {
+    animation: fadeInUp 0.6s ease-out both;
+  }
+  .education .education-card:nth-child(1) {
+    animation-delay: 0.05s;
+  }
+  .education .education-card:nth-child(2) {
+    animation-delay: 0.12s;
+  }
+
+  .projects .project-card {
+    animation: fadeInUp 0.6s ease-out both;
+  }
+  .projects .project-card:nth-child(1) {
+    animation-delay: 0.05s;
+  }
+  .projects .project-card:nth-child(2) {
+    animation-delay: 0.12s;
+  }
+  .projects .project-card:nth-child(3) {
+    animation-delay: 0.19s;
+  }
+
+  .contact .contact-info,
+  .contact .contact-form-container {
+    animation: fadeInUp 0.6s ease-out both;
+  }
+  .contact .contact-info {
+    animation-delay: 0.05s;
+  }
+  .contact .contact-form-container {
+    animation-delay: 0.12s;
+  }
+
+  .footer {
+    animation: fadeInUp 0.6s ease-out both;
+    animation-delay: 0.1s;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
 
